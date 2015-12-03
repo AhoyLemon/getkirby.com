@@ -30,6 +30,51 @@
   <link rel="apple-touch-icon" href="<?php echo url('assets/images/apple-touch-icon.png') ?>" />
   <meta name="apple-mobile-web-app-title" content="<?php echo html($site->title()) ?>">
   <link rel="alternate" type="application/rss+xml" href="<?php echo url('feed') ?>" title="<?php echo html($site->title()) ?> Blog Feed" />
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@getkirby" />
+  <?php if($page->isHomePage()): ?>
+    <meta name="twitter:title" content="<?php echo html($page->headline()) ?>" />
+  <?php else: ?>
+    <meta name="twitter:title" content="<?php echo html($page->title()) ?> | <?php echo html($site->title()) ?>" />
+  <?php endif ?>
+  <meta name="twitter:description" content="<?php echo excerpt($page->text()->xml(), 180) ?>" />
+  <meta name="twitter:image" content="/mstile-310x310.png" />
+  <meta name="twitter:url" content="<?php echo $page->url() ;?>" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="<?php echo $page->title(); ?>">
+  <?php if($page->isHomePage()): ?>
+    <meta property="og:title" content="<?php echo html($page->headline()) ?>">
+  <?php else: ?>
+    <meta property="og:title" content="<?php echo html($page->title()) ?> | <?php echo html($site->title()) ?>">
+  <?php endif ?>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<?php echo $page->url(); ?>">
+  <meta name="og:image" content="/mstile-310x310.png" />
+  <meta property="og:description" content="<?php echo excerpt($page->text()->xml(), 200) ?>">
+  <meta property="og:email" content="<?php echo $site->email(); ?>">
 
 </head>
 <body class="<?php e(c::get('stage'), 'stage ') ?><?php echo str_replace('.', '-', $page->template()) ?>" id="top">
